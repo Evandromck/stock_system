@@ -3,7 +3,6 @@ from email.mime import image
 from tkinter import *
 from tkinter import Tk, StringVar, ttk
 
-import webview
 
 # importando Pillow
 from PIL import Image, ImageTk
@@ -118,16 +117,6 @@ l_model.place(x=10, y=190)
 e_model = Entry(frameMeio, width=30, justify='left', relief=SOLID)
 e_model.place(x=130, y=191)
 
-""" ---------------------------Botoes_imagem-------------------------------------------- """
-
-l_carregar = Label(frameMeio, text='imagen do item', height=1, anchor=NW,
-                   font=('Ivy 10 bold'), bg=co1, fg=co4)
-l_carregar.place(x=10, y=220)
-
-
-b_carregar = Button(frameMeio, width=30, text="carregar".upper(
-), command=CENTER, overrelief=RIDGE, anchor=CENTER, font=('Ivy 8'), bg=co1, fg=co0)
-b_carregar.place(x=130, y=221)
 
 """ ---------------------------BOTAO INSERIR IMAGEM-------------------------------------------- """
 
@@ -137,12 +126,12 @@ l_carregar = Label(frameMeio, text='imagen do item', height=1, anchor=NW,
 l_carregar.place(x=10, y=220)
 
 
-b_carregar = Button(frameMeio, width=30, text="carregar".upper(
+b_carregar = Button(frameMeio, width=29, text="carregar".upper(
 ), command=CENTER, overrelief=RIDGE, anchor=CENTER, font=('Ivy 8'), bg=co1, fg=co0)
 b_carregar.place(x=130, y=221)
 
 
-""" ---------------------------BOTAO INSERIR ITEM-------------------------------------------- """
+""" ---------------------------BOTAO ADICIONAR -------------------------------------------- """
 
 img_add = Image.open('Add.png')
 img_add = img_add.resize((20, 20))
@@ -164,5 +153,46 @@ b_update = Button(frameMeio, image=img_update, width=95, text='   ADICIONAR'.upp
 ), compound=LEFT, anchor=NW, overrelief=RIDGE, font=('Ivy 8'), bg=co1, fg=co0)
 b_update.place(x=330, y=50)
 
+""" ---------------------------BOTAO DELETAR-------------------------------------------- """
+
+img_deletar = Image.open('delete.png')
+img_deletar = img_deletar.resize((20, 20))
+img_deletar = ImageTk.PhotoImage(img_deletar)
+
+
+b_deletar = Button(frameMeio, image=img_deletar, width=95, text='   DELETAR'.upper(
+), compound=LEFT, anchor=NW, overrelief=RIDGE, font=('Ivy 8'), bg=co1, fg=co0)
+b_deletar.place(x=330, y=90)
+
+""" ---------------------------BOTAO ITEM-------------------------------------------- """
+img_item = Image.open('item.png')
+img_item = img_item.resize((20, 20))
+img_item = ImageTk.PhotoImage(img_item)
+
+
+b_item = Button(frameMeio, image=img_item, width=95, text='   VER ITEM'.upper(
+), compound=LEFT, anchor=NW, overrelief=RIDGE, font=('Ivy 8'), bg=co1, fg=co0)
+b_item.place(x=330, y=221)
+
+
+""" ---------------------------LABEL QUANTIDADE TOTAL E VALORES-------------------------------------------- """
+
+l_total = Label(frameMeio, text='', width=14, height=2, anchor=CENTER,
+                font=('Ivy 17 bold'), bg=co7, fg=co1)
+l_total.place(x=450, y=17)
+
+l_total = Label(frameMeio, text='  Valor total de todos os itens   ', height=1, anchor=NW,
+                font=('Ivy 10 bold'), bg=co7, fg=co1)
+l_total.place(x=450, y=12)
+
+# Quantidade
+
+l_qtd = Label(frameMeio, text='', width=14, height=2, anchor=CENTER,
+              font=('Ivy 17 bold'), bg=co7, fg=co1)
+l_qtd.place(x=450, y=90)
+
+l_qtd = Label(frameMeio, text='  Quantidade Total de itens   ', height=1, anchor=NW,
+              font=('Ivy 10 bold'), bg=co7, fg=co1)
+l_qtd.place(x=450, y=92)
 
 janela.mainloop()
